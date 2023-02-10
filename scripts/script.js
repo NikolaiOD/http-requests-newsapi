@@ -12,7 +12,8 @@ function onSubmit(e) {
 
   API.getNews(inputValue)
     .then(({ articles }) => {
-      if (articles.length === 0) throw new Error("No data");
+      // if (articles.length === 0) throw new Error("No data");
+      if (inputValue === '') throw new Error("No data");
 
       return articles.reduce(
         (markup, article) => createMarkup(article) + markup,
